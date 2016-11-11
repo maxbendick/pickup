@@ -87,7 +87,6 @@ export default class Index extends Component<null, null> {
 
                return <GameDetail
                   game={new Game("Basketball", 1, 1, "", [])}        
-                  onForward={onForward}
                   onBack={onBack}
                   />
                }

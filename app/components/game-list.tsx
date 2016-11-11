@@ -16,11 +16,11 @@ export class GameListState {
 }
 
 export default class GameList extends Component<GameListProps, GameListState> {
-   constructor() {
-      super();
+   constructor(props: GameListProps) {
+      super(props);
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       this.state = new GameListState(
-         ds.cloneWithRows(['Basketball at CP Rec', 'Soccer at Cuesta', 'Spikeball at Dexter', 'Ultimate at the park'])
+         ds.cloneWithRows(props.games)
       );
   }
 
@@ -30,7 +30,10 @@ export default class GameList extends Component<GameListProps, GameListState> {
             <Text>Game List</Text>
             <ListView
                dataSource={this.state.dataSource}
-               renderRow={(rowData) => <Text>{rowData}</Text>}
+               renderRow={(rowData: Game) => 
+                  <TouchableHighlight onPress={() => this.props.onSelect(rowData)}>
+                     <Text>{rowData.type} {rowData.time}</Text>
+                  </TouchableHighlight>}
             />
          </View>
       );

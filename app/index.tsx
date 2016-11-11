@@ -41,7 +41,7 @@ export default class Index extends Component<null, null> {
                      return (
                         <View>
                            <Text>This is the Dev Homescreen</Text>
-                           <TouchableHighlight onPress={() =>  goToScreen("Game Detail", ROUTES.GAME_DETAIL)}>
+                           <TouchableHighlight onPress={() => goToScreen("Game Detail", ROUTES.GAME_DETAIL)}>
                               <Text>View Game Detail</Text>
                            </TouchableHighlight>
                            <TouchableHighlight onPress={() => goToScreen("Game List", ROUTES.GAME_LIST)}>
@@ -64,29 +64,29 @@ export default class Index extends Component<null, null> {
                      );
                   case ROUTES.GAME_LIST:
                      return (
-                        <GameList      
-                           onForward={onForward}
-                           onBack={onBack}
+                        <GameList
+                           onSelect={(game: Game) => {}}
+                           games={[new Game("Basketball", 1, 1, "", []), new Game("Baseball", 1, 1, "", [])]}
                            />
                      );
                   case ROUTES.NEW_GAME:
                      return (
-                        <NewGame      
+                        <NewGame
                            onForward={onForward}
                            onBack={onBack}
                            />
                      );
                   case ROUTES.GAME_NOTIFICATION:
                      return (
-                        <GameNotification      
+                        <GameNotification
                            onForward={onForward}
                            onBack={onBack}
                            />
-                     );  
+                     );
                }
 
                return <GameDetail
-                  gameName={route.title}        
+                  game={new Game("Basketball", 1, 1, "", [])}        
                   onForward={onForward}
                   onBack={onBack}
                   />

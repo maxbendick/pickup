@@ -13,7 +13,7 @@ export default class GameDetail extends Component<GameDetailProps, null> {
    render() {
       return (
          <View style={styles.container}>
-            <Text style={styles.headerText}>Current Scene: {this.props.gameName}</Text>
+            <Text style={styles.headerText}>Type: {this.props.game.type}</Text>
              <View style={styles.headerContainer}>
             <TouchableHighlight onPress={this.props.onForward}>
                <Text>Tap me to load the next scene</Text>

@@ -6,6 +6,7 @@ import GameDetail, { GameDetailProps } from './components/game-detail';
 import GameList, { GameListProps } from './components/game-list';
 import NewGame, { NewGameProps } from './components/new-game';
 import GameNotification, { GameNotificationProps } from './components/game-notification';
+import Game from "./models/game";
 
 export const enum ROUTES {
    DEV_HOME, GAME_DETAIL, GAME_LIST, NEW_GAME, GAME_NOTIFICATION
@@ -22,7 +23,7 @@ export default class Index extends Component<null, null> {
                   const nextIndex = route.index + 1;
                   navigator.push({
                      title: 'Scene ' + nextIndex,
-                     index: nextIndex,
+                     index: nextIndex
                   });
                }
                let onBack = () => {
@@ -56,7 +57,7 @@ export default class Index extends Component<null, null> {
                   case ROUTES.GAME_DETAIL:
                      return (
                         <GameDetail
-                           gameName={route.title}       
+                           game={new Game("Basketball", 1, 1, "", [])}
                            onForward={onForward}
                            onBack={onBack}
                            />

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import Game from "../models/game";
 
 export class GameDetailProps {
-   public game;
+   public game: Game;
    public onForward;
    public onBack;
 }

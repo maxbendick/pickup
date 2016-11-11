@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "jsx": "react",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir": "dist"
+    },
+    "filesGlob": [
+        "typings/**/*.d.ts",
+        "app/**/*.ts",
+        "app/**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

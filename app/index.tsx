@@ -81,10 +81,8 @@ export default class Index extends Component<null, null> {
                            onForward={onForward}
                            onBack={onBack}
                            />
-                     );
-                  
+                     );  
                }
-
 
                return <GameDetail
                   gameName={route.title}

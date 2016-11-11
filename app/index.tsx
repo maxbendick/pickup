@@ -85,20 +85,26 @@ export default class Index extends Component<null, IndexState> {
                   case ROUTES.GAME_LIST:
                      return (
                         <GameList
-                           onSelect={(game: Game) => {this.setState({
-                              selectedGame: game,
-                              games: this.state.games
-                           })}}
+                           onSelect={(game: Game) => {
+                              this.setState({
+                                 selectedGame: game,
+                                 games: this.state.games
+                              });
+                              goToScreen("Game Detail", ROUTES.GAME_DETAIL);
+                           }}
                            games={this.state.games}
                            />
                      );
                   case ROUTES.NEW_GAME:
                      return (
                         <NewGame
-                           submit={(game: Game) => {this.setState({
-                              selectedGame: game,
-                              games: this.state.games.concat(game)
-                           })}}
+                           submit={(game: Game) => {
+                              this.setState({
+                                 selectedGame: game,
+                                 games: this.state.games.concat(game)
+                              });
+                              goToScreen("Game Detail", ROUTES.GAME_DETAIL);
+                           }}
                            onBack={onBack}
                            />
                      );

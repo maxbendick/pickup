@@ -93,6 +93,7 @@ export default class Index extends Component<null, IndexState> {
                               goToScreen("Game Detail", ROUTES.GAME_DETAIL);
                            }}
                            games={this.state.games}
+                           newGame={() => null}
                            />
                      );
                   case ROUTES.NEW_GAME:

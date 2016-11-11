@@ -6,6 +6,7 @@ import Game from '../models/game';
 
 export class GameListProps {
    public onSelect: (game: Game) => void;
+   public games: Array<Game>
 }
 
 export class GameListState {

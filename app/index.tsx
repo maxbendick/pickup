@@ -64,20 +64,21 @@ export default class Index extends Component<null, null> {
                      );
                   case ROUTES.GAME_LIST:
                      return (
-                        <GameList      
+                        <GameList
                            onSelect={(game: Game) => {}}
+                           games={[]}
                            />
                      );
                   case ROUTES.NEW_GAME:
                      return (
-                        <NewGame      
+                        <NewGame
                            onForward={onForward}
                            onBack={onBack}
                            />
                      );
                   case ROUTES.GAME_NOTIFICATION:
                      return (
-                        <GameNotification      
+                        <GameNotification
                            onForward={onForward}
                            onBack={onBack}
                            />

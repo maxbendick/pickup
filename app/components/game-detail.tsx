@@ -13,15 +13,15 @@ export default class GameDetail extends Component<GameDetailProps, null> {
       let date = new Date(this.props.game.time).toUTCString();
       return (
          <View style={styles.container}>
-            <Text style={styles.headerText}>Type: {this.props.game.type}</Text>
+            <View style={styles.navContainer}>
+               <TouchableHighlight onPress={this.props.onBack}>
+                  <Text style={styles.backBtn}>←</Text>
+               </TouchableHighlight>
+               <Text style={styles.headerText}>{this.props.game.type} Game</Text>
+            </View>
             <Text>Distance: {this.props.game.distance}</Text>
             <Text>Game Starts At: {date}</Text>
             <Text>Notes: {this.props.game.notes}</Text>
-             <View style={styles.rowWrapper}>
-            <TouchableHighlight onPress={this.props.onBack}>
-               <Text>Tap me to go back</Text>
-            </TouchableHighlight>
-             </View>
          </View>
       );
    }
@@ -30,9 +30,7 @@ export default class GameDetail extends Component<GameDetailProps, null> {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF'
+      backgroundColor: '#FFFFFF'
    } as React.ViewStyle,
    rowWrapper: {
       flex: 1,
@@ -42,21 +40,30 @@ const styles = StyleSheet.create({
       flexDirection: 'row', 
       justifyContent: 'space-around'
    } as React.ViewStyle,
+   navContainer: {
+      height: 70,
+      paddingTop: 10,
+      paddingLeft: 20,
+      paddingRight: 15,
+      alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      backgroundColor: '#FFB600'
+   } as React.ViewStyle,
    headerText: {
       flex: 1,
       flexDirection: 'row',
+      textAlign: 'center',
       color: '#333333',
       fontSize: 22,
       fontWeight: "bold"
-   } as React.ViewStyle,
+   } as React.TextStyle,
    welcome: {
       fontSize: 20,
       textAlign: 'center',
       margin: 10
    } as React.TextStyle,
-   instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5
+   backBtn: {
+      fontSize: 30
    } as React.TextStyle,
 });

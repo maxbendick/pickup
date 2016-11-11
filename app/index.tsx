@@ -7,6 +7,7 @@ import GameList, { GameListProps } from './components/game-list';
 import NewGame, { NewGameProps } from './components/new-game';
 import GameNotification, { GameNotificationProps } from './components/game-notification';
 import Game from "./models/game";
+import Player from "./models/player";
 
 export const enum ROUTES {
    DEV_HOME, GAME_DETAIL, GAME_LIST, NEW_GAME, GAME_NOTIFICATION
@@ -57,8 +58,7 @@ export default class Index extends Component<null, null> {
                   case ROUTES.GAME_DETAIL:
                      return (
                         <GameDetail
-                           game={new Game("Basketball", 1, 1, "", [])}
-                           onForward={onForward}
+                           game={new Game("Basketball", 1, 1478899646000, "", [new Player("Steve")])}
                            onBack={onBack}
                            />
                      );

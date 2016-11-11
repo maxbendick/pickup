@@ -5,19 +5,19 @@ import Game from "../models/game";
 
 export class GameDetailProps {
    public game: Game;
-   public onForward;
    public onBack;
 }
 
 export default class GameDetail extends Component<GameDetailProps, null> {
    render() {
+      let date = new Date(this.props.game.time).toUTCString();
       return (
          <View style={styles.container}>
             <Text style={styles.headerText}>Type: {this.props.game.type}</Text>
-             <View style={styles.headerContainer}>
-            <TouchableHighlight onPress={this.props.onForward}>
-               <Text>Tap me to load the next scene</Text>
-            </TouchableHighlight>
+            <Text>Distance: {this.props.game.distance}</Text>
+            <Text>Game Starts At: {date}</Text>
+            <Text>Notes: {this.props.game.notes}</Text>
+             <View style={styles.rowWrapper}>
             <TouchableHighlight onPress={this.props.onBack}>
                <Text>Tap me to go back</Text>
             </TouchableHighlight>
@@ -34,12 +34,10 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#F5FCFF'
    } as React.ViewStyle,
-   headerContainer: {
+   rowWrapper: {
       flex: 1,
-      height: 70,
-      paddingTop: 10,
-      paddingLeft: 20,
-      paddingRight: 15,
+      marginLeft: 20,
+      marginRight: 20,
       alignItems: 'center',
       flexDirection: 'row', 
       justifyContent: 'space-around'

@@ -78,21 +78,27 @@ export default class Index extends Component<null, IndexState> {
                   case ROUTES.GAME_DETAIL:
                      return (
                         <GameDetail
-                           game={new Game("Basketball", 1, 1478899646000, "", [new Player("Steve")])}
+                           game={this.state.selectedGame || this.state.games[0]}
                            onBack={onBack}
                            />
                      );
                   case ROUTES.GAME_LIST:
                      return (
                         <GameList
-                           onSelect={(game: Game) => {}}
-                           games={[new Game("Basketball", 1, 1, "", []), new Game("Baseball", 1, 1, "", [])]}
+                           onSelect={(game: Game) => {this.setState({
+                              selectedGame: game,
+                              games: this.state.games
+                           })}}
+                           games={this.state.games}
                            />
                      );
                   case ROUTES.NEW_GAME:
                      return (
                         <NewGame
-                           submit={(game: Game) => {onBack();}}
+                           submit={(game: Game) => {this.setState({
+                              selectedGame: game,
+                              games: this.state.games.concat(game)
+                           })}}
                            onBack={onBack}
                            />
                      );

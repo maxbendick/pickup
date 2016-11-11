@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import { AppRegistry } from 'react-native';
 
-import Index from './dist';
+import Index from './dist/index';
 
 export default class Pickup extends Component {
   render() {

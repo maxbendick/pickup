@@ -33,9 +33,12 @@ export default class GameList extends Component<GameListProps, GameListState> {
                dataSource={this.state.dataSource}
                renderRow={(rowData: Game) => 
                   <TouchableHighlight onPress={() => this.props.onSelect(rowData)}>
-                     <Text>{rowData.type} {rowData.time}</Text>
+                     <Text>{rowData.type} {new Date(rowData.time).toUTCString()}</Text>
                   </TouchableHighlight>}
             />
+            <TouchableHighlight onPress={() => this.props.newGame()}>
+               <Text>New Game</Text>
+            </TouchableHighlight>
          </View>
       );
    }

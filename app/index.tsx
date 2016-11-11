@@ -66,7 +66,7 @@ export default class Index extends Component<null, null> {
                      return (
                         <GameList
                            onSelect={(game: Game) => {}}
-                           games={[]}
+                           games={[new Game("Basketball", 1, 1, "", []), new Game("Baseball", 1, 1, "", [])]}
                            />
                      );
                   case ROUTES.NEW_GAME:

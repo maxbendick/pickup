@@ -6,7 +6,6 @@ import GameDetail, { GameDetailProps } from './components/game-detail';
 import GameList, { GameListProps } from './components/game-list';
 import NewGame, { NewGameProps } from './components/new-game';
 import GameNotification, { GameNotificationProps } from './components/game-notification';
-import Game from "./models/game";
 
 export const enum ROUTES {
    DEV_HOME, GAME_DETAIL, GAME_LIST, NEW_GAME, GAME_NOTIFICATION
@@ -24,7 +23,6 @@ export default class Index extends Component<null, null> {
                   navigator.push({
                      title: 'Scene ' + nextIndex,
                      index: nextIndex,
-                     game: Game,
                   });
                }
                let onBack = () => {
@@ -32,7 +30,7 @@ export default class Index extends Component<null, null> {
                      navigator.pop();
                   }
                }
-               let goTo = (title: string, index: number) => {
+               let goToScreen = (title: string, index: number) => {
                   navigator.push({title: title, index: index});
                }
 
@@ -41,16 +39,16 @@ export default class Index extends Component<null, null> {
                      return (
                         <View>
                            <Text>This is the Dev Homescreen</Text>
-                           <TouchableHighlight onPress={() =>  goTo("Game Detail", ROUTES.GAME_DETAIL)}>
+                           <TouchableHighlight onPress={() =>  goToScreen("Game Detail", ROUTES.GAME_DETAIL)}>
                               <Text>View Game Detail</Text>
                            </TouchableHighlight>
-                           <TouchableHighlight onPress={() => goTo("Game List", ROUTES.GAME_LIST)}>
+                           <TouchableHighlight onPress={() => goToScreen("Game List", ROUTES.GAME_LIST)}>
                               <Text>View Game List</Text>
                            </TouchableHighlight>
-                           <TouchableHighlight onPress={() => goTo("New Game", ROUTES.NEW_GAME)}>
+                           <TouchableHighlight onPress={() => goToScreen("New Game", ROUTES.NEW_GAME)}>
                               <Text>View New Game</Text>
                            </TouchableHighlight>
-                           <TouchableHighlight onPress={() => goTo("Game Notification", ROUTES.GAME_NOTIFICATION)}>
+                           <TouchableHighlight onPress={() => goToScreen("Game Notification", ROUTES.GAME_NOTIFICATION)}>
                               <Text>View Game Notification</Text>
                            </TouchableHighlight>
                         </View>
@@ -58,7 +56,7 @@ export default class Index extends Component<null, null> {
                   case ROUTES.GAME_DETAIL:
                      return (
                         <GameDetail
-                           game={route.game}
+                           gameName={route.title}       
                            onForward={onForward}
                            onBack={onBack}
                            />
@@ -87,24 +85,9 @@ export default class Index extends Component<null, null> {
                }
 
                return <GameDetail
-                  game={route.game}
-
-                  // Function to call when a new scene should be displayed           
-                  onForward={() => {
-                     const nextIndex = route.index + 1;
-                     navigator.push({
-                        title: 'Scene ' + nextIndex,
-                        index: nextIndex,
-                        game: Game,
-                     });
-                  } }
-
-                  // Function to call to go back to the previous scene
-                  onBack={() => {
-                     if (route.index > 0) {
-                        navigator.pop();
-                     }
-                  } }
+                  gameName={route.title}        
+                  onForward={onForward}
+                  onBack={onBack}
                   />
                }
             }

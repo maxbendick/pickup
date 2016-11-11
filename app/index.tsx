@@ -13,7 +13,27 @@ export const enum ROUTES {
    DEV_HOME, GAME_DETAIL, GAME_LIST, NEW_GAME, GAME_NOTIFICATION
 }
 
-export default class Index extends Component<null, null> {
+export class IndexState {
+   public games: Array<Game>;
+   public selectedGame: Game;
+}
+
+export default class Index extends Component<null, IndexState> {
+   constructor(props: null) {
+      super(props);
+
+      let games = [
+         new Game("Basketball", 1, 1478899646000, "", [new Player("Steve")]),
+         new Game("Basketball", 1, 1, "", []),
+         new Game("Baseball", 1, 1, "", [])
+      ];
+
+      this.state = {
+         games: games,
+         selectedGame: null
+      }
+   }
+
    render() {
       return (
          <Navigator
@@ -72,7 +92,7 @@ export default class Index extends Component<null, null> {
                   case ROUTES.NEW_GAME:
                      return (
                         <NewGame
-                           onForward={onForward}
+                           submit={(game: Game) => {onBack();}}
                            onBack={onBack}
                            />
                      );

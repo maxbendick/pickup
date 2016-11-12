@@ -31,7 +31,8 @@ var styles = StyleSheet.create({
      flex: 1,
       textAlign: 'center',
       fontSize: 30,
-      fontWeight: "bold"
+      fontWeight: "bold",
+      color: "#FFFFFF"
    } as React.TextStyle,
    navContainer: {
       height: 70,
@@ -46,7 +47,19 @@ var styles = StyleSheet.create({
    floatStyle: {
       flex: 1,
       flexDirection: 'row'
-   } as React.ViewStyle
+   } as React.ViewStyle,
+   gameTitle: {
+      marginLeft: 10,
+      top: 0,
+      fontSize: 18, 
+      fontWeight: 'bold' as "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
+   },
+   timeText: {
+      marginLeft: 10,
+      top: 0,
+      fontSize: 18, 
+      marginTop: 5
+   }
 });
 
 export class GameListProps {
@@ -69,24 +82,29 @@ export default class GameList extends Component<GameListProps, GameListState> {
   }
 
    render() {
+      const weekday = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
       return (
          <View style={[styles.box]}>
             <View style={styles.navContainer}>
                <Text style={styles.headerText}>Game List</Text>
             </View>
-            <ListView 
+            <ListView style={{margin: 2}}
                dataSource={this.state.dataSource}
-               renderRow={(rowData: Game) => 
-                  <TouchableHighlight style={[styles.card]} onPress={() => this.props.onSelect(rowData)}>
+               renderRow={(game: Game) => 
+                  <TouchableHighlight style={[styles.card]} onPress={() => this.props.onSelect(game)}>
                      <View style={styles.floatStyle}>
                         <Image 
-                           style={{width: 50, height: 50}}
-                           //source={require(rowData.type.img)}
-                           source={require('../../images/icon_football.png')}
+                           style={{left: -10, top: -10, width: 71, height: 71, alignItems: 'stretch'}}
+                           source={game.type.img}
                         />
-                        <Text style={{marginLeft: 10, top: 0, fontSize: 18, fontWeight: 'bold'}}>
-                           {rowData.type.type}
-                        </Text>
+                        <View style={{flexDirection: 'column'}}>
+                           <Text style={styles.gameTitle}>
+                              {game.type.type}
+                           </Text>
+                           <Text style={styles.timeText}>
+                              {weekday[game.day]} {game.hour}
+                           </Text>
+                        </View>
                      </View>
                   </TouchableHighlight>
                }

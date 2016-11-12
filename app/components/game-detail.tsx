@@ -17,7 +17,7 @@ export class State {
 }
 
 export default class GameDetail extends Component<GameDetailProps, State> {
-   weekday= ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+   weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
    constructor(GameDetailProps) {
       super(GameDetailProps);
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});

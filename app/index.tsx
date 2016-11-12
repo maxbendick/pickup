@@ -23,8 +23,11 @@ export class IndexState {
    public selectedGame: Game;
 }
 
-const basketball = new GameType("Basketball", "../../images/icon_basketball.svg");
-const baseball = new GameType("Baseball", "../../images/icon_baseball.svg");
+const basketball = new GameType("Basketball", require('../images/icon_basketball.png'));
+const baseball = new GameType("Baseball", require("../images/icon_baseball.png"));
+const soccer = new GameType("Soccer", require("../images/icon_soccer.png"));
+const tennis = new GameType("Tennis", require("../images/icon_tennis.png"));
+const volleyball = new GameType("Volleyball", require("../images/icon_volleyball.png"));
 
 const players = [
    new Player("Steve", ""),
@@ -49,12 +52,15 @@ export default class Index extends Component<null, IndexState> {
       super(props);
 
       let games = [
-         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", players, chats[0]),
-         new Game(basketball, 1, DAY_OF_WEEK.MON, "8 PM", "", [players[0], players[1], players[3]], chats[0]),
-         new Game(baseball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[4], players[5], players[6]], chats[0]),
-         new Game(basketball, 1, DAY_OF_WEEK.TUES, "11 AM", "", [players[1], players[4], players[5]], chats[0]),
-         new Game(baseball, 1, DAY_OF_WEEK.WED, "1 PM", "", [players[0], players[2], players[4], players[5]], chats[0]),
-         new Game(baseball, 1, DAY_OF_WEEK.THUR, "3 PM", "", players, chats[0]),
+         new Game(basketball, 1, DAY_OF_WEEK.MON, "7pm", "", players, chats[0]),
+         new Game(volleyball, 1, DAY_OF_WEEK.MON, "8pm", "", [players[0], players[1], players[3]], chats[0]),
+         new Game(baseball, 1, DAY_OF_WEEK.MON, "7pm", "", [players[4], players[5], players[6]], chats[0]),
+         new Game(soccer, 1, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[0]),
+         new Game(baseball, 1, DAY_OF_WEEK.WED, "1pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
+         new Game(tennis, 1, DAY_OF_WEEK.THUR, "3pm", "", players, chats[0]),
+         new Game(soccer, 1, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[0]),
+         new Game(baseball, 1, DAY_OF_WEEK.WED, "1pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
+         new Game(tennis, 1, DAY_OF_WEEK.THUR, "3pm", "", players, chats[0]),
       ];
 
       this.state = {

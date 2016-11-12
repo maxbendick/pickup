@@ -1,4 +1,4 @@
 export default class GameType {
-   constructor(public type: string, public img: string) {
+   constructor(public type: string, public img: any) {
    }
 }

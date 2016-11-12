@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, ListView, AppRegistry } from 'react-native';
+import { Card, Button, RaisedButton } from 'react-native-material-design';
 
 import Game from '../models/game';
 
@@ -8,7 +9,6 @@ import Game from '../models/game';
 export class GameListProps {
    public onSelect: (game: Game) => void;
    public games: Array<Game>
-   public newGame: () => void;
 }
 
 export class GameListState {
@@ -33,12 +33,18 @@ export default class GameList extends Component<GameListProps, GameListState> {
                dataSource={this.state.dataSource}
                renderRow={(rowData: Game) => 
                   <TouchableHighlight onPress={() => this.props.onSelect(rowData)}>
-                     <Text>{rowData.type} {new Date(rowData.time).toUTCString()}</Text>
-                  </TouchableHighlight>}
+                     <Card>
+                     <RaisedButton label="Default" />
+                     <Card.Body>
+                        <Text>{rowData.type}</Text>
+                     </Card.Body>
+                     <Card.Actions position="right">
+                        <Button value="BUTTON" />
+                     </Card.Actions>
+                     </Card>
+                  </TouchableHighlight>
+               }
             />
-            <TouchableHighlight onPress={() => this.props.newGame()}>
-               <Text>New Game</Text>
-            </TouchableHighlight>
          </View>
       );
    }

@@ -32,7 +32,7 @@ var styles = StyleSheet.create({
      flex: 1,
       textAlign: 'center',
       fontSize: 30,
-      fontWeight: "bold",
+      fontWeight: "500",
       color: "#FFFFFF"
    } as React.TextStyle,
    navContainer: {
@@ -60,7 +60,11 @@ var styles = StyleSheet.create({
       top: 0,
       fontSize: 18, 
       marginTop: 5
-   }
+   },
+   moreImg: {
+      width: 25,
+      height: 25
+   } as React.TextStyle
 });
 
 export class GameListProps {
@@ -84,10 +88,13 @@ export default class GameList extends Component<GameListProps, GameListState> {
 
    render() {
       const weekday = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+      /*<TouchableHighlight>
+                  <Image style={styles.moreImg} source={require('../../images/Menu-48.png')}/>
+               </TouchableHighlight>*/
       return (
          <View style={[styles.box]}>
             <View style={styles.navContainer}>
-               <Text style={styles.headerText}>Game List</Text>
+               <Text style={styles.headerText}>Good Game</Text>
             </View>
             <ListView style={{margin: 2}}
                dataSource={this.state.dataSource}

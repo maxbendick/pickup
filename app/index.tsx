@@ -123,9 +123,10 @@ export default class Index extends Component<null, IndexState> {
                            onBack={onBack}
                            chat={this.state.selectedGame ? this.state.selectedGame.chat : this.state.games[0].chat}
                            newMessage={(message: Message) => {
-                              this.state.selectedGame.chat.messages = chat.messages.concat(message)
+                              this.state.selectedGame.chat.messages = this.state.selectedGame.chat.messages.concat(message)
                               this.setState({
-                                 selectedGame: this.state.selectedGame
+                                 selectedGame: this.state.selectedGame,
+                                 games: this.state.games
                               });
                            }}
                            />

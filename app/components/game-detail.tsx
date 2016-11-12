@@ -12,6 +12,7 @@ export class GameDetailProps {
    public game: Game;
    public chat: Chat;
    public onBack;
+   public newMessage;
 }
 
 export class State {
@@ -64,7 +65,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
             <View style={styles.inputContainer}>
                <View style={styles.textContainer}>
                   <TextInput
-                    style={styles.input} onSubmitEditing={this._onBack}
+                    style={styles.input} onSubmitEditing={(text) => this.props.newMessage(text)}
                   />
                </View>
                <View style={styles.sendContainer}>

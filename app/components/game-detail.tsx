@@ -43,8 +43,10 @@ export default class GameDetail extends Component<GameDetailProps, State> {
             <Text>Distance: {this.props.game.distance}</Text>
             <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <Text>Notes: {this.props.game.notes}</Text>
+            <View style={styles.chatContainer}>
             <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}
             />
+            </View>
             <View style={styles.inputContainer}>
                <View style={styles.textContainer}>
                   <TextInput
@@ -102,6 +104,11 @@ const styles = StyleSheet.create({
    backBtn: {
       fontSize: 30
    } as React.TextStyle,
+   chatContainer: {
+      flex: 11,
+      justifyContent: 'center',
+      alignItems: 'stretch'
+    } as React.ViewStyle,
    inputContainer: {
       flex: 1,
       flexDirection: 'row',
@@ -123,12 +130,13 @@ const styles = StyleSheet.create({
     } as React.TextStyle,
     input: {
       width: 270,
-      color: '#ffffff',
+      color: '#000000',
       paddingRight: 10,
       paddingLeft: 10,
       paddingTop: 5,
       height: 32,
       borderColor: '#6E5BAA',
+      backgroundColor: '#FFFFFF',
       borderWidth: 1,
       borderRadius: 2,
       alignSelf: 'center',

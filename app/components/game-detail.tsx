@@ -53,7 +53,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                </TouchableHighlight>
                <Text style={styles.headerText}>{this.props.game.type.type} Game</Text>
                <TouchableHighlight>
-                  <Image style={styles.moreImg} source={require('../../images/button_menu.png')}/>
+                  <Image style={styles.moreImg} source={require('../../images/Menu-48.png')}/>
                </TouchableHighlight>
             </View>
             <Text>Distance: {this.props.game.distance}</Text>

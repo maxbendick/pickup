@@ -6,7 +6,7 @@ import Chat from "../models/chat";
 
 export class GameDetailProps {
    public game: Game;
-   public chat: Array<Chat>;
+   public chat: Chat;
    public onBack;
 }
 

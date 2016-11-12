@@ -1,0 +1,1 @@
+export const APP_BAR_COLOR = '#3ca5dd'; //'#4A93CF'

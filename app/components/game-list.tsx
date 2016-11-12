@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, ListView, AppRegistry, Image } from 'react-native';
 
 import Game from '../models/game';
+import { APP_BAR_COLOR } from '../colors';
 
 
 var styles = StyleSheet.create({
@@ -42,7 +43,7 @@ var styles = StyleSheet.create({
       alignItems: 'center',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      backgroundColor: '#4A93CF'
+      backgroundColor: APP_BAR_COLOR
    } as React.ViewStyle,
    floatStyle: {
       flex: 1,

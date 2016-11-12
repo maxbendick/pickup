@@ -5,6 +5,7 @@ import Game from "../models/game";
 import Chat from "../models/chat";
 import Message from '../models/message';
 import MessageComponent from './message-component';
+import { APP_BAR_COLOR } from '../colors';
 
 export class GameDetailProps {
    public game: Game;
@@ -57,7 +58,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                </View>
                <View style={styles.sendContainer}>
                   <TouchableHighlight
-                  underlayColor={'#4e4273'}
+                  underlayColor={APP_BAR_COLOR}//{'#4286f4'}//3ca5dd
                   >
                   <Text style={styles.sendLabel}>SEND</Text>
                   </TouchableHighlight>
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      backgroundColor: '#4A93CF'
+      backgroundColor: APP_BAR_COLOR
    } as React.ViewStyle,
    headerText: {
       flex: 1,
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-around',
-      backgroundColor: '#4A93CF',
+      backgroundColor: APP_BAR_COLOR,//'#4A93CF',
       alignItems: 'center'
     } as React.ViewStyle,
     textContainer: {
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
       paddingLeft: 10,
       paddingTop: 5,
       height: 32,
-      borderColor: '#4A93CF',
+      borderColor: APP_BAR_COLOR,//'#4A93CF',
       backgroundColor: '#FFFFFF',
       borderWidth: 1,
       borderRadius: 2,

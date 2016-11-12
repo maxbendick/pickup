@@ -8,6 +8,7 @@ import NewGame, { NewGameProps } from './components/new-game';
 import GameNotification, { GameNotificationProps } from './components/game-notification';
 import Game from "./models/game";
 import Player from "./models/player";
+import GameType from "./models/gametype";
 
 export const enum ROUTES {
    DEV_HOME, GAME_DETAIL, GAME_LIST, NEW_GAME, GAME_NOTIFICATION
@@ -23,9 +24,9 @@ export default class Index extends Component<null, IndexState> {
       super(props);
 
       let games = [
-         new Game("Basketball", 1, 1478899646000, "", [new Player("Steve")]),
-         new Game("Basketball", 1, 1, "", []),
-         new Game("Baseball", 1, 1, "", [])
+         new Game(new GameType("Basketball", "basketball.png"), 1, 1478899646000, "", [new Player("Steve")]),
+         new Game(new GameType("Basketball", "basketball.png"), 1, 1, "", []),
+         new Game(new GameType("Baseball", "baseball.png"), 1, 1, "", [])
       ];
 
       this.state = {
@@ -119,7 +120,7 @@ export default class Index extends Component<null, IndexState> {
                }
 
                return <GameDetail
-                  game={new Game("Basketball", 1, 1, "", [])}        
+                  game={new Game(new GameType("Basketball", "basketball.png"), 1, 1, "", [])}        
                   onBack={onBack}
                   />
                }

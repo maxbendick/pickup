@@ -6,7 +6,7 @@ import Chat from "../models/chat";
 
 export class GameDetailProps {
    public game: Game;
-   public chat: Chat;
+   public chat: Array<Chat>;
    public onBack;
 }
 
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       textAlign: 'center',
-      color: '#333333',
       fontSize: 22,
       fontWeight: "bold"
    } as React.TextStyle,

@@ -31,7 +31,7 @@ const volleyball = new GameType("Volleyball", require("../images/icon_volleyball
 const bicycle = new GameType("Bicycle", require("../images/icon_bicycle.png"));
 const bowling = new GameType("Bowling", require("../images/icon_bowling.png"));
 const football = new GameType("Football", require("../images/icon_football.png"));
-const shuttlecock = new GameType("Shuttlecock", require("../images/icon_shuttlecock.png"));
+const shuttlecock = new GameType("Badminton", require("../images/icon_shuttlecock.png"));
 const pingpong = new GameType("Ping Pong", require("../images/icon_pingPong.png"));
 
 const players = [

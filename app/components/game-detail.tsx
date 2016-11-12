@@ -59,7 +59,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                   <Image style={styles.moreImg} source={require('../../images/Menu-48.png')}/>
                </TouchableHighlight>
             </View>
-            <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
+            <Text style={styles.time}>{this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <View style={styles.chatContainer}>
               <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}
             />
@@ -119,6 +119,11 @@ const styles = StyleSheet.create({
       fontSize: 30,
       fontWeight: "bold",
       color: "#FFFFFF"
+   } as React.TextStyle,
+   time: {
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 20
    } as React.TextStyle,
    moreImg: {
       width: 25,

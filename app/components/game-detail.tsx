@@ -52,11 +52,11 @@ export default class GameDetail extends Component<GameDetailProps, State> {
          <View style={styles.container}>
             <View style={styles.navContainer}>
                <TouchableHighlight onPress={this.props.onBack}>
-                  <Text style={styles.backBtn}>&lt;</Text>
+                  <Image style={{height: 25, width: 25}} source={require('../../images/Back-50.png')}/>
                </TouchableHighlight>
                <Text style={styles.headerText}>{this.props.game.type.type} Game</Text>
                <TouchableHighlight>
-                  <Image style={styles.moreImg} source={require('../../images/button_menu.png')}/>
+                  <Image style={styles.moreImg} source={require('../../images/Menu-48.png')}/>
                </TouchableHighlight>
             </View>
             <Text>Distance: {this.props.game.distance}</Text>

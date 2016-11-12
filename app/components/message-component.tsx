@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, ListView, AppRegistry } from 'react-native';
 
 import Message from '../models/message';
+import { APP_BAR_COLOR } from '../colors';
 
 export class MessageProps {
    public message: Message;
@@ -22,7 +23,7 @@ export default class MessageComponent extends Component<MessageProps, null> {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#4080ff',
+      backgroundColor: '#2b94cc',//'#4080ff',
       color: '#ffffff',
       borderRadius: 10,
       margin: 5,

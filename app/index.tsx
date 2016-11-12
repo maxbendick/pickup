@@ -101,6 +101,7 @@ export default class Index extends Component<null, IndexState> {
                         <GameDetail
                            game={this.state.selectedGame || this.state.games[0]}
                            onBack={onBack}
+                           chat={this.state.selectedGame ? this.state.selectedGame.chat : this.state.games[0].chat}
                            />
                      );
                   case ROUTES.GAME_LIST:
@@ -138,10 +139,10 @@ export default class Index extends Component<null, IndexState> {
                      );
                }
 
-               return <GameDetail
+               /*return <GameDetail
                   game={new Game(new GameType("Basketball", "basketball.png"), 1, DAY_OF_WEEK.MON, "7 PM", "", [])}        
                   onBack={onBack}
-                  />
+                  />*/
                }
             }
             />

@@ -57,16 +57,16 @@ export default class Index extends Component<null, IndexState> {
       super(props);
 
       let games = [
-         new Game(basketball, 1, DAY_OF_WEEK.MON, "7pm", "", players, chats[0]),
-         new Game(volleyball, 1, DAY_OF_WEEK.MON, "8pm", "", [players[0], players[1], players[3]], chats[0]),
-         new Game(baseball, 1, DAY_OF_WEEK.MON, "7pm", "", [players[4], players[5], players[6]], chats[0]),
-         new Game(soccer, 1, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[0]),
-         new Game(basketball, 1, DAY_OF_WEEK.WED, "2pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
-         new Game(tennis, 1, DAY_OF_WEEK.THUR, "3pm", "", players, chats[0]),
-         new Game(shuttlecock, 1, DAY_OF_WEEK.WED, "1pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
-         new Game(pingpong, 1, DAY_OF_WEEK.SUN, "5pm", "", players, chats[0]),
-         new Game(football, 1, DAY_OF_WEEK.TUES, "10am", "", [players[1], players[4], players[5]], chats[0]),
-         new Game(bowling, 1, DAY_OF_WEEK.THUR, "6pm", "", players, chats[0]),
+         new Game(basketball, DAY_OF_WEEK.MON, "7pm", "", players, chats[0]),
+         new Game(volleyball, DAY_OF_WEEK.MON, "8pm", "", [players[0], players[1], players[3]], chats[0]),
+         new Game(baseball, DAY_OF_WEEK.MON, "7pm", "", [players[4], players[5], players[6]], chats[0]),
+         new Game(soccer, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[0]),
+         new Game(basketball, DAY_OF_WEEK.WED, "2pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
+         new Game(tennis, DAY_OF_WEEK.THUR, "3pm", "", players, chats[0]),
+         new Game(shuttlecock, DAY_OF_WEEK.WED, "1pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
+         new Game(pingpong, DAY_OF_WEEK.SUN, "5pm", "", players, chats[0]),
+         new Game(football, DAY_OF_WEEK.TUES, "10am", "", [players[1], players[4], players[5]], chats[0]),
+         new Game(bowling, DAY_OF_WEEK.THUR, "6pm", "", players, chats[0]),
       ];
 
       this.state = {

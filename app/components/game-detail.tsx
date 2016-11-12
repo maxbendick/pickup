@@ -59,7 +59,6 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                   <Image style={styles.moreImg} source={require('../../images/Menu-48.png')}/>
                </TouchableHighlight>
             </View>
-            <Text>Distance: {this.props.game.distance}</Text>
             <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <View style={styles.chatContainer}>
               <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}

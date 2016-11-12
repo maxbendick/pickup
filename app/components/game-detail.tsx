@@ -67,7 +67,10 @@ export default class GameDetail extends Component<GameDetailProps, State> {
             <View style={styles.inputContainer}>
                <View style={styles.textContainer}>
                   <TextInput
-                    style={styles.input} onChangeText={(text) => this.setState({dataSource: this.state.dataSource, message: text})}
+                    style={styles.input} 
+                    onChangeText={(text) => this.setState({dataSource: this.state.dataSource, message: text})}
+                    blurOnSubmit={true}
+                    placeholder={'Say something...'}
                   />
                </View>
                <View style={styles.sendContainer}>

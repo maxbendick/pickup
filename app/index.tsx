@@ -20,14 +20,17 @@ export class IndexState {
    public selectedGame: Game;
 }
 
+const basketball = new GameType("Basketball", "basketball.png");
+const baseball = new GameType("Baseball", "baseball.png");
+
 export default class Index extends Component<null, IndexState> {
    constructor(props: null) {
       super(props);
 
       let games = [
-         new Game(new GameType("Basketball", "basketball.png"), 1, DAY_OF_WEEK.MON, "7 PM", "", [new Player("Steve")]),
-         new Game(new GameType("Basketball", "basketball.png"), 1, DAY_OF_WEEK.MON, "7 PM", "", []),
-         new Game(new GameType("Baseball", "baseball.png"), 1, DAY_OF_WEEK.MON, "7 PM", "", [])
+         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", [new Player("Steve")]),
+         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", []),
+         new Game(baseball, 1, DAY_OF_WEEK.MON, "7 PM", "", [])
       ];
 
       this.state = {

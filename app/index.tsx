@@ -23,8 +23,8 @@ export class IndexState {
    public selectedGame: Game;
 }
 
-const basketball = new GameType("Basketball", "basketball.png");
-const baseball = new GameType("Baseball", "baseball.png");
+const basketball = new GameType("Basketball", "../../images/icon_basketball.svg");
+const baseball = new GameType("Baseball", "../../images/icon_baseball.svg");
 
 const players = [
    new Player("Steve", ""),

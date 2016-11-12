@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { StyleSheet, Text, View, ListView, TouchableHighlight } from 'react-native';
+import { StyleSheet, Image, Text, TextInput, View, ListView, TouchableHighlight } from 'react-native';
 import Game from "../models/game";
 import Chat from "../models/chat";
 
@@ -10,20 +10,53 @@ export class GameDetailProps {
    public onBack;
 }
 
-export default class GameDetail extends Component<GameDetailProps, null> {
+export class State {
+   public dataSource;
+}
+
+export default class GameDetail extends Component<GameDetailProps, State> {
    weekday= ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+   constructor(GameDetailProps) {
+      super(GameDetailProps);
+      const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+      var msgs = [];
+      for (var i = 0; i < this.props.chat.messages.length; i++) {
+         msgs[i] = this.props.chat.messages[i].content;
+      }
+      this.state = {
+         dataSource: ds.cloneWithRows(msgs),
+      };
+   }
+
    render() {
+      var messageLen = this.props.chat.messages.length;
       return (
          <View style={styles.container}>
             <View style={styles.navContainer}>
                <TouchableHighlight onPress={this.props.onBack}>
-                  <Text style={styles.backBtn}>←</Text>
+                  <Text style={styles.backBtn}>&lt;</Text>
                </TouchableHighlight>
                <Text style={styles.headerText}>{this.props.game.type.type} Game</Text>
             </View>
             <Text>Distance: {this.props.game.distance}</Text>
             <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <Text>Notes: {this.props.game.notes}</Text>
+            <ListView dataSource={this.state.dataSource} renderRow={(content) => <Text>{content}</Text>}
+            />
+            <View style={styles.inputContainer}>
+               <View style={styles.textContainer}>
+                  <TextInput
+                  style={styles.input}
+                  />
+               </View>
+               <View style={styles.sendContainer}>
+                  <TouchableHighlight
+                  underlayColor={'#4e4273'}
+                  >
+                  <Text style={styles.sendLabel}>SEND</Text>
+                  </TouchableHighlight>
+               </View>
+            </View>
          </View>
       );
    }
@@ -67,4 +100,35 @@ const styles = StyleSheet.create({
    backBtn: {
       fontSize: 30
    } as React.TextStyle,
+   inputContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      backgroundColor: '#FFB600',
+      alignItems: 'center'
+    } as React.ViewStyle,
+    textContainer: {
+      flex: 1,
+      justifyContent: 'center'
+    } as React.ViewStyle,
+    sendContainer: {
+      justifyContent: 'flex-end',
+      paddingRight: 10
+    } as React.ViewStyle,
+    sendLabel: {
+      color: '#ffffff',
+      fontSize: 15
+    } as React.TextStyle,
+    input: {
+      width: 270,
+      color: '#ffffff',
+      paddingRight: 10,
+      paddingLeft: 10,
+      paddingTop: 5,
+      height: 32,
+      borderColor: '#6E5BAA',
+      borderWidth: 1,
+      borderRadius: 2,
+      alignSelf: 'center',
+    } as React.TextStyle,
 });

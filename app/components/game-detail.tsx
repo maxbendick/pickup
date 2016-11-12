@@ -2,13 +2,16 @@ import * as React from 'react';
 import { Component } from 'react';
 import { StyleSheet, Text, View, ListView, TouchableHighlight } from 'react-native';
 import Game from "../models/game";
+import Chat from "../models/chat";
 
 export class GameDetailProps {
    public game: Game;
+   public chat: Chat;
    public onBack;
 }
 
 export default class GameDetail extends Component<GameDetailProps, null> {
+   weekday= ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
    render() {
       return (
          <View style={styles.container}>
@@ -19,7 +22,7 @@ export default class GameDetail extends Component<GameDetailProps, null> {
                <Text style={styles.headerText}>{this.props.game.type.type} Game</Text>
             </View>
             <Text>Distance: {this.props.game.distance}</Text>
-            <Text>Time: {this.props.game.day} at {this.props.game.hour}</Text>
+            <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <Text>Notes: {this.props.game.notes}</Text>
          </View>
       );

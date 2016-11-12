@@ -45,8 +45,11 @@ export default class Index extends Component<null, IndexState> {
 
       let games = [
          new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", players, chats),
-         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[0], players[1], players[3]], chats),
-         new Game(baseball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[4], players[5], players[6]], chats)
+         new Game(basketball, 1, DAY_OF_WEEK.MON, "8 PM", "", [players[0], players[1], players[3]], chats),
+         new Game(baseball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[4], players[5], players[6]], chats),
+         new Game(basketball, 1, DAY_OF_WEEK.TUES, "11 AM", "", [players[1], players[4], players[5]], chats),
+         new Game(baseball, 1, DAY_OF_WEEK.WED, "1 PM", "", [players[0], players[2], players[4], players[5]], chats),
+         new Game(baseball, 1, DAY_OF_WEEK.THUR, "3 PM", "", players, chats),
       ];
 
       this.state = {

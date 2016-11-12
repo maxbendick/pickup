@@ -23,14 +23,23 @@ export class IndexState {
 const basketball = new GameType("Basketball", "basketball.png");
 const baseball = new GameType("Baseball", "baseball.png");
 
+const players = [
+   new Player("Steve", ""),
+   new Player("Bob", ""),
+   new Player("Allison", ""),
+   new Player("Nick", ""),
+   new Player("Krissy", ""),
+   new Player("David", "")
+];
+
 export default class Index extends Component<null, IndexState> {
    constructor(props: null) {
       super(props);
 
       let games = [
-         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", [new Player("Steve")]),
-         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", []),
-         new Game(baseball, 1, DAY_OF_WEEK.MON, "7 PM", "", [])
+         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", players),
+         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[0], players[1], players[3]]),
+         new Game(baseball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[4], players[5], players[6]])
       ];
 
       this.state = {

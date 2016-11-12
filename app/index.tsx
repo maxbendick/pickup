@@ -38,7 +38,7 @@ export default class Index extends Component<null, IndexState> {
    render() {
       return (
          <Navigator
-            initialRoute={{ title: 'My Initial Scene', index: ROUTES.DEV_HOME}}
+            initialRoute={{ title: 'My Initial Scene', index: ROUTES.GAME_LIST}}
             renderScene={(route, navigator) => {
 
                let onForward = () => {
@@ -94,7 +94,6 @@ export default class Index extends Component<null, IndexState> {
                               goToScreen("Game Detail", ROUTES.GAME_DETAIL);
                            }}
                            games={this.state.games}
-                           newGame={() => goToScreen("New Game", ROUTES.NEW_GAME)}
                            />
                      );
                   case ROUTES.NEW_GAME:

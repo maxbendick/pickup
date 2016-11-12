@@ -9,6 +9,7 @@ import GameNotification, { GameNotificationProps } from './components/game-notif
 import Game from "./models/game";
 import Player from "./models/player";
 import GameType from "./models/gametype";
+import DAY_OF_WEEK from "./models/day-of-week";
 
 export const enum ROUTES {
    DEV_HOME, GAME_DETAIL, GAME_LIST, NEW_GAME, GAME_NOTIFICATION
@@ -24,9 +25,9 @@ export default class Index extends Component<null, IndexState> {
       super(props);
 
       let games = [
-         new Game(new GameType("Basketball", "basketball.png"), 1, 1478899646000, "", [new Player("Steve")]),
-         new Game(new GameType("Basketball", "basketball.png"), 1, 1, "", []),
-         new Game(new GameType("Baseball", "baseball.png"), 1, 1, "", [])
+         new Game(new GameType("Basketball", "basketball.png"), 1, DAY_OF_WEEK.MON, "7 PM", "", [new Player("Steve")]),
+         new Game(new GameType("Basketball", "basketball.png"), 1, DAY_OF_WEEK.MON, "7 PM", "", []),
+         new Game(new GameType("Baseball", "baseball.png"), 1, DAY_OF_WEEK.MON, "7 PM", "", [])
       ];
 
       this.state = {
@@ -120,7 +121,7 @@ export default class Index extends Component<null, IndexState> {
                }
 
                return <GameDetail
-                  game={new Game(new GameType("Basketball", "basketball.png"), 1, 1, "", [])}        
+                  game={new Game(new GameType("Basketball", "basketball.png"), 1, DAY_OF_WEEK.MON, "7 PM", "", [])}        
                   onBack={onBack}
                   />
                }

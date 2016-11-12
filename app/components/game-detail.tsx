@@ -16,7 +16,7 @@ export default class GameDetail extends Component<GameDetailProps, null> {
                <TouchableHighlight onPress={this.props.onBack}>
                   <Text style={styles.backBtn}>←</Text>
                </TouchableHighlight>
-               <Text style={styles.headerText}>{this.props.game.type} Game</Text>
+               <Text style={styles.headerText}>{this.props.game.type.type} Game</Text>
             </View>
             <Text>Distance: {this.props.game.distance}</Text>
             <Text>Time: {this.props.game.day} at {this.props.game.hour}</Text>

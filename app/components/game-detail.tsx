@@ -40,7 +40,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                </TouchableHighlight>
                <Text style={styles.headerText}>{this.props.game.type.type} Game</Text>
                <TouchableHighlight>
-                  <Image style={styles.moreImg} source={require('../../images/menu.png')}/>
+                  <Image style={styles.moreImg} source={require('../../images/button_menu.png')}/>
                </TouchableHighlight>
             </View>
             <Text>Distance: {this.props.game.distance}</Text>
@@ -105,8 +105,8 @@ const styles = StyleSheet.create({
       color: "#FFFFFF"
    } as React.TextStyle,
    moreImg: {
-      width: 30,
-      height: 30
+      width: 25,
+      height: 25
    } as React.TextStyle,
    chatContainer: {
       flex: 11,

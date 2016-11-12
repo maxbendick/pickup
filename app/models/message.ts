@@ -1,6 +1,6 @@
 import Player from './player';
 
 export default class Message {
-   player: Player;
-   content: string;
+   constructor(public player: Player, public content: string) {
+   }
 }

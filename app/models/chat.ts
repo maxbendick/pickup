@@ -1,5 +1,6 @@
 import Message from './message';
 
 export default class Chat {
-   messages: Array<Message>
+   constructor(public messages: Array<Message>) {
+   }
 }

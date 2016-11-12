@@ -11,6 +11,9 @@ import Player from "./models/player";
 import GameType from "./models/gametype";
 import DAY_OF_WEEK from "./models/day-of-week";
 
+import Chat from './models/chat';
+import Message from './models/message';
+
 export const enum ROUTES {
    DEV_HOME, GAME_DETAIL, GAME_LIST, NEW_GAME, GAME_NOTIFICATION
 }
@@ -32,14 +35,18 @@ const players = [
    new Player("David", "")
 ];
 
+const chats = [
+   new Chat([new Message(players[0], "Hello from Steve")])
+];
+
 export default class Index extends Component<null, IndexState> {
    constructor(props: null) {
       super(props);
 
       let games = [
-         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", players),
-         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[0], players[1], players[3]]),
-         new Game(baseball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[4], players[5], players[6]])
+         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", players, chats[0]),
+         new Game(basketball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[0], players[1], players[3]], chats[0]),
+         new Game(baseball, 1, DAY_OF_WEEK.MON, "7 PM", "", [players[4], players[5], players[6]], chats[0])
       ];
 
       this.state = {

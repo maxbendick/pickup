@@ -45,7 +45,7 @@ var styles = StyleSheet.create({
       //color: "#FFFFFF"
    } as React.TextStyle,
    navContainer: {
-      height: 70,
+      height: 60,
       paddingTop: 20,
       paddingLeft: 20,
       paddingRight: 15,
@@ -135,9 +135,6 @@ export default class GameList extends Component<GameListProps, GameListState> {
             onPress: () => { console.log("pressed swipe btn") }
          }
       ];
-      /*<TouchableHighlight>
-                  <Image style={styles.moreImg} source={require('../../images/Menu-48.png')}/>
-       </TouchableHighlight>*/
       return (
          <View>
             <View style={styles.navContainer}>

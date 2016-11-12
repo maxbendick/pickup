@@ -52,18 +52,20 @@ export default class GameDetail extends Component<GameDetailProps, State> {
          <View style={styles.container}>
             <View style={styles.navContainer}>
                <TouchableHighlight onPress={this.props.onBack}>
-                  <Image style={{height: 25, width: 25}} source={require('../../images/Back-50.png')}/>
+                  <Image style={{height: 50, width: 50}} source={require('../../updated_icons/icon_back.png')}/>
                </TouchableHighlight>
                <Text style={styles.headerText}>{this.props.game.type.type} Game</Text>
                <TouchableHighlight>
-                  <Image style={styles.moreImg} source={require('../../images/Menu-48.png')}/>
+                  <Image style={styles.moreImg} source={require('../../updated_icons/layout_sc.png')}/>
                </TouchableHighlight>
             </View>
-            <Text style={styles.time}>{this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
+            <View style={{height: 1, backgroundColor: '#E6E6E6'}}/>
+            <Text style={styles.time}>{this.weekday[this.props.game.day]} {this.props.game.hour}</Text>
             <View style={styles.chatContainer}>
               <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}
             />
             </View>
+            <View style={{height: 1, backgroundColor: '#E6E6E6'}}/>
             <View style={styles.inputContainer}>
                <View style={styles.textContainer}>
                   <TextInput
@@ -74,11 +76,11 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                   />
                </View>
                <View style={styles.sendContainer}>
-                  <TouchableHighlight
-                  underlayColor={APP_BAR_COLOR}//{'#4286f4'}//3ca5dd
-                  onPress={() => this._onBack()}
-                  >
-                  <Text style={styles.sendLabel}>Send</Text>
+                     <TouchableHighlight
+                        underlayColor={APP_BAR_COLOR}
+                        onPress={() => this._onBack()}
+                     >
+                     <Text style={styles.sendLabel}>Send</Text>
                   </TouchableHighlight>
                </View>
             </View>
@@ -90,7 +92,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#EEEEEE'
+      backgroundColor: 'white'
    } as React.ViewStyle,
    rowWrapper: {
       flex: 1,
@@ -101,36 +103,38 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around'
    } as React.ViewStyle,
    navContainer: {
-      height: 70,
+      height: 60,
       paddingTop: 10,
-      paddingLeft: 20,
+      paddingLeft: 5,
       paddingRight: 15,
       alignItems: 'center',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      backgroundColor: APP_BAR_COLOR
+      backgroundColor: 'white'
    } as React.ViewStyle,
    headerText: {
       flex: 1,
       flexDirection: 'row',
       textAlign: 'center',
-      fontSize: 30,
-      fontWeight: "bold",
-      color: "#FFFFFF"
+      fontSize: 18,
+      fontWeight: "normal",
+      color: APP_BAR_COLOR
    } as React.TextStyle,
    backBtn: {
       fontSize: 30,
       fontWeight: "bold",
-      color: "#FFFFFF"
+      color: APP_BAR_COLOR
    } as React.TextStyle,
    time: {
       textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: 20
+      fontWeight: 'normal',
+      paddingTop: 5,
+      fontSize: 14, 
+      color: '#666666',
    } as React.TextStyle,
    moreImg: {
-      width: 25,
-      height: 25
+      width: 18,
+      height: 16,
    } as React.TextStyle,
    chatContainer: {
       flex: 11,
@@ -141,7 +145,6 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-around',
-      backgroundColor: APP_BAR_COLOR,//'#4A93CF',
       alignItems: 'center'
     } as React.ViewStyle,
     textContainer: {
@@ -153,7 +156,7 @@ const styles = StyleSheet.create({
       paddingRight: 10
     } as React.ViewStyle,
     sendLabel: {
-      color: '#ffffff',
+      color: APP_BAR_COLOR,
       fontSize: 15,
       paddingRight: 10
     } as React.TextStyle,
@@ -164,10 +167,6 @@ const styles = StyleSheet.create({
       paddingLeft: 10,
       paddingTop: 5,
       height: 32,
-      borderColor: APP_BAR_COLOR,//'#4A93CF',
-      backgroundColor: '#FFFFFF',
-      borderWidth: 1,
-      borderRadius: 2,
       alignSelf: 'center',
     } as React.TextStyle,
 });

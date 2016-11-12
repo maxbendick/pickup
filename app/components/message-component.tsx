@@ -23,14 +23,14 @@ export default class MessageComponent extends Component<MessageProps, null> {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#2b94cc',//'#4080ff',
+      backgroundColor: APP_BAR_COLOR,
       color: '#ffffff',
       borderRadius: 10,
       margin: 5,
       marginRight: 5,
-      marginTop: 10,
+      marginTop: 5,
       padding: 10,
-      fontSize: 22,
+      fontSize: 18,
       maxWidth: 350
       
    } as React.ViewStyle & React.TextStyle,
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
    } as React.ViewStyle,
    user: {
       paddingRight: 10,
-      paddingTop: 10
+      paddingTop: 10,
+      color: '#666666',
    } as React.TextStyle
 });

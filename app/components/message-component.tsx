@@ -12,6 +12,7 @@ export default class MessageComponent extends Component<MessageProps, null> {
    render() {
       return (
          <View style={styles.viewComp}>
+            <Text style={styles.user}>{this.props.message.player.name}</Text>
             <Text style={styles.container}>{this.props.message.content}</Text>
          </View>
       );
@@ -37,5 +38,9 @@ const styles = StyleSheet.create({
    } as React.TextStyle,
    viewComp: {
       alignItems: 'flex-end'
-   } as React.ViewStyle
+   } as React.ViewStyle,
+   user: {
+      paddingRight: 10,
+      paddingTop: 10
+   } as React.TextStyle
 });

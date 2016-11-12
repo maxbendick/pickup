@@ -96,10 +96,13 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       textAlign: 'center',
       fontSize: 30,
-      fontWeight: "bold"
+      fontWeight: "bold",
+      color: "#FFFFFF"
    } as React.TextStyle,
    backBtn: {
-      fontSize: 30
+      fontSize: 30,
+      fontWeight: "bold",
+      color: "#FFFFFF"
    } as React.TextStyle,
    moreImg: {
       width: 30,

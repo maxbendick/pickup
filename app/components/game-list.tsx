@@ -49,13 +49,13 @@ var styles = StyleSheet.create({
       flexDirection: 'row'
    } as React.ViewStyle,
    gameTitle: {
-      marginLeft: 10,
+      marginLeft: 0,
       top: 0,
       fontSize: 18, 
       fontWeight: 'bold' as "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
    },
    timeText: {
-      marginLeft: 10,
+      marginLeft: 0,
       top: 0,
       fontSize: 18, 
       marginTop: 5

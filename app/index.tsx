@@ -28,6 +28,11 @@ const baseball = new GameType("Baseball", require("../images/icon_baseball.png")
 const soccer = new GameType("Soccer", require("../images/icon_soccer.png"));
 const tennis = new GameType("Tennis", require("../images/icon_tennis.png"));
 const volleyball = new GameType("Volleyball", require("../images/icon_volleyball.png"));
+const bicycle = new GameType("Bicycle", require("../images/icon_bicycle.png"));
+const bowling = new GameType("Bowling", require("../images/icon_bowling.png"));
+const football = new GameType("Football", require("../images/icon_football.png"));
+const shuttlecock = new GameType("Shuttlecock", require("../images/icon_shuttlecock.png"));
+const pingpong = new GameType("Ping Pong", require("../images/icon_pingPong.png"));
 
 const players = [
    new Player("Steve", ""),
@@ -56,11 +61,12 @@ export default class Index extends Component<null, IndexState> {
          new Game(volleyball, 1, DAY_OF_WEEK.MON, "8pm", "", [players[0], players[1], players[3]], chats[0]),
          new Game(baseball, 1, DAY_OF_WEEK.MON, "7pm", "", [players[4], players[5], players[6]], chats[0]),
          new Game(soccer, 1, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[0]),
-         new Game(baseball, 1, DAY_OF_WEEK.WED, "1pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
+         new Game(basketball, 1, DAY_OF_WEEK.WED, "2pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
          new Game(tennis, 1, DAY_OF_WEEK.THUR, "3pm", "", players, chats[0]),
-         new Game(soccer, 1, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[0]),
-         new Game(baseball, 1, DAY_OF_WEEK.WED, "1pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
-         new Game(tennis, 1, DAY_OF_WEEK.THUR, "3pm", "", players, chats[0]),
+         new Game(shuttlecock, 1, DAY_OF_WEEK.WED, "1pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
+         new Game(pingpong, 1, DAY_OF_WEEK.SUN, "5pm", "", players, chats[0]),
+         new Game(football, 1, DAY_OF_WEEK.TUES, "10am", "", [players[1], players[4], players[5]], chats[0]),
+         new Game(bowling, 1, DAY_OF_WEEK.THUR, "6pm", "", players, chats[0]),
       ];
 
       this.state = {

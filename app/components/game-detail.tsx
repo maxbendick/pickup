@@ -17,6 +17,7 @@ export class GameDetailProps {
 
 export class State {
    public dataSource;
+   public message;
 }
 
 export default class GameDetail extends Component<GameDetailProps, State> {
@@ -30,15 +31,17 @@ export default class GameDetail extends Component<GameDetailProps, State> {
       }
       this.state = {
          dataSource: ds.cloneWithRows(msgs),
+         message: ''
       };
    }
 
    _onBack = () => {
      var door = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
      var messages = this.props.chat.messages;
-     messages.push(new Message(new Player("Me",""),"Hi!!"));
+     messages.push(new Message(new Player("Me",""), this.state.message));
      this.setState ({
-       dataSource: door.cloneWithRows(messages)
+       dataSource: door.cloneWithRows(messages),
+       message: this.state.message
      });
   }
      
@@ -65,12 +68,13 @@ export default class GameDetail extends Component<GameDetailProps, State> {
             <View style={styles.inputContainer}>
                <View style={styles.textContainer}>
                   <TextInput
-                    style={styles.input} onSubmitEditing={(text) => this.props.newMessage(text)}
+                    style={styles.input} onChangeText={(text) => this.setState({dataSource: this.state.dataSource, message: text})}
                   />
                </View>
                <View style={styles.sendContainer}>
                   <TouchableHighlight
                   underlayColor={APP_BAR_COLOR}//{'#4286f4'}//3ca5dd
+                  onPress={() => this._onBack()}
                   >
                   <Text style={styles.sendLabel}>SEND</Text>
                   </TouchableHighlight>

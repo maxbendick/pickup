@@ -38,7 +38,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
    _onBack = () => {
      var door = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
      var messages = this.props.chat.messages;
-     messages.push(new Message(new Player("Me",""), this.state.message));
+     messages.push(new Message(new Player("Doug",""), this.state.message));
      this.setState ({
        dataSource: door.cloneWithRows(messages),
        message: this.state.message
@@ -75,7 +75,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                   underlayColor={APP_BAR_COLOR}//{'#4286f4'}//3ca5dd
                   onPress={() => this._onBack()}
                   >
-                  <Text style={styles.sendLabel}>SEND</Text>
+                  <Text style={styles.sendLabel}>Send</Text>
                   </TouchableHighlight>
                </View>
             </View>
@@ -151,7 +151,8 @@ const styles = StyleSheet.create({
     } as React.ViewStyle,
     sendLabel: {
       color: '#ffffff',
-      fontSize: 15
+      fontSize: 15,
+      paddingRight: 10
     } as React.TextStyle,
     input: {
       width: 270,

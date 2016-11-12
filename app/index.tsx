@@ -36,7 +36,12 @@ const players = [
 ];
 
 const chats = [
-   new Chat([new Message(players[0], "Hello from Steve"), new Message(players[1], "Hello from Bob"), new Message(players[2], "Hello from Allison")])
+   new Chat([
+      new Message(players[0], "Wanna get some Thai Boat after the game?"),
+      new Message(players[1], "Yeah, let's do it!"),
+      new Message(players[2], "Loser buys the iced tea!"),
+      new Message(players[1], "You're on, Allison")
+   ])
 ];
 
 export default class Index extends Component<null, IndexState> {

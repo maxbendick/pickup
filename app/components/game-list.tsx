@@ -1,28 +1,35 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, ListView, AppRegistry, Image } from 'react-native';
+import { StyleSheet, TextInput, Text, View, TouchableHighlight, ListView, AppRegistry, Image } from 'react-native';
 
 import Game from '../models/game';
 import { APP_BAR_COLOR } from '../colors';
 
+import Swipeout from 'react-native-swipeout';
+// var Swipeout = require('react-native-swipeout')
 
 var styles = StyleSheet.create({
-   card: {
+   row: {
       flex: 1, 
-      height: 75,
+      height: 60,
       padding: 10,
-      margin: 2,
-      marginLeft: 5,
-      marginRight: 5,
-      borderRadius: 5,
-      borderWidth: 2,
-      borderColor: '#d6d7da'
-   } as React.TextStyle,
+      backgroundColor: 'white',
+   },
+   separator: {
+      height: 1,
+      width: 400,
+      marginLeft: 15,
+   },
+   rowContainer: {
+      padding: 10,
+   },
+   rowText: {
+      marginLeft: 10
+   },
    box: {
       marginLeft: 0,
       marginRight: 0,
       flex: 1,
-      backgroundColor: 'transparent',
     },
    title: {
       marginTop: 30,
@@ -53,21 +60,31 @@ var styles = StyleSheet.create({
       flexDirection: 'row'
    } as React.ViewStyle,
    gameTitle: {
-      marginLeft: 0,
+      marginLeft: 15,
       top: 0,
-      fontSize: 18, 
-      fontWeight: 'bold' as "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
+      fontSize: 16, 
+      fontFamily: 'helvetica',
+      fontWeight: '400' as "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
    },
    timeText: {
-      marginLeft: 0,
+      marginLeft: 15,
       top: 0,
-      fontSize: 18, 
+      fontSize: 12,
+      fontFamily: 'helvetica', 
+      color: '#666666',
+      fontWeight: '400' as "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900",
       marginTop: 5
    },
    moreImg: {
       width: 25,
       height: 25
-   } as React.TextStyle
+   } as React.TextStyle,
+   sportIcons: {
+      width: 35,
+      height: 35,
+      marginLeft: 5,
+      alignItems: 'center'
+   } as React.ImageStyle
 });
 
 export class GameListProps {
@@ -87,40 +104,72 @@ export default class GameList extends Component<GameListProps, GameListState> {
       this.state = new GameListState(
          ds.cloneWithRows(props.games)
       );
-  }
+   }
 
    render() {
-      const weekday = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+      const weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      let swipeBtns = [
+         {
+            text: '+',
+            backgroundColor: '#8BBF50',
+            onPress: () => { console.log("pressed swipe btn") }
+         },
+         {
+            text: '...',
+            backgroundColor: '#617E8A',
+            onPress: () => { console.log("pressed swipe btn") }
+         },
+         {
+            text: 'Delete',
+            backgroundColor: '#F05A36',
+            onPress: () => { console.log("pressed swipe btn") }
+         }
+      ];
       /*<TouchableHighlight>
                   <Image style={styles.moreImg} source={require('../../images/Menu-48.png')}/>
-               </TouchableHighlight>*/
+       </TouchableHighlight>*/
       return (
-         <View style={[styles.box]}>
+         <View>
             <View style={styles.navContainer}>
                <Image source={require('../../images/goodGame_Newlogo.png')} style={styles.headerText}/>
             </View>
-            <ListView style={{margin: 2}}
+            <ListView
                dataSource={this.state.dataSource}
+               renderSeparator={this._renderSeparator}
                renderRow={(game: Game) => 
-                  <TouchableHighlight style={[styles.card]} onPress={() => this.props.onSelect(game)}>
-                     <View style={styles.floatStyle}>
-                        <Image 
-                           style={{left: -10, top: -10, width: 71, height: 71, alignItems: 'stretch'}}
-                           source={game.type.img}
-                        />
-                        <View style={{flexDirection: 'column'}}>
-                           <Text style={styles.gameTitle}>
-                              {game.type.type}
-                           </Text>
-                           <Text style={styles.timeText}>
-                              {weekday[game.day]} {game.hour}
-                           </Text>
+                  <Swipeout right={swipeBtns}>
+                     <TouchableHighlight underlayColor = {'#FAFAFAFA'} style={[styles.row]} onPress={() => this.props.onSelect(game)}>
+                        <View style={styles.floatStyle}>
+                           <Image 
+                              style={styles.sportIcons}
+                              source={game.type.img}
+                           />
+                           <View style={{flexDirection: 'column'}}>
+                              <Text style={styles.gameTitle}>
+                                 {game.type.type}
+                              </Text>
+                              <Text style={styles.timeText}>
+                                 {weekday[game.day]} {game.hour}
+                              </Text>
+                           </View>
                         </View>
-                     </View>
-                  </TouchableHighlight>
+                     </TouchableHighlight>
+                  </Swipeout>
                }
             />
          </View>
+      );
+   }
+
+   _renderSeparator(sectionID: number, rowID: number, adjacentRowHighlighted: boolean) {
+      return (
+         <View
+         key={`${sectionID}-${rowID}`}
+         style={{
+            height: adjacentRowHighlighted ? 4 : 1,
+            backgroundColor: adjacentRowHighlighted ? '#E6E6E6' : '#E6E6E6',
+         }}
+         />
       );
    }
 }

@@ -23,16 +23,16 @@ export class IndexState {
    public selectedGame: Game;
 }
 
-const basketball = new GameType("Basketball", require('../images/icon_basketball.png'));
-const baseball = new GameType("Baseball", require("../images/icon_baseball.png"));
-const soccer = new GameType("Soccer", require("../images/icon_soccer.png"));
-const tennis = new GameType("Tennis", require("../images/icon_tennis.png"));
-const volleyball = new GameType("Volleyball", require("../images/icon_volleyball.png"));
-const bicycle = new GameType("Bicycle", require("../images/icon_bicycle.png"));
-const bowling = new GameType("Bowling", require("../images/icon_bowling.png"));
-const football = new GameType("Football", require("../images/icon_football.png"));
-const shuttlecock = new GameType("Badminton", require("../images/icon_shuttlecock.png"));
-const pingpong = new GameType("Ping Pong", require("../images/icon_pingPong.png"));
+const basketball = new GameType("Basketball", require('../updated_icons/icon_basketball.png'));
+const baseball = new GameType("Baseball", require("../updated_icons/icon_baseball.png"));
+const soccer = new GameType("Soccer", require("../updated_icons/icon_soccer.png"));
+const tennis = new GameType("Tennis", require("../updated_icons/icon_tennis.png"));
+const volleyball = new GameType("Volleyball", require("../updated_icons/icon_volleyball.png"));
+const bicycle = new GameType("Bicycle", require("../updated_icons/icon_bike.png"));
+const bowling = new GameType("Bowling", require("../updated_icons/icon_bowling.png"));
+const football = new GameType("Football", require("../updated_icons/icon_football.png"));
+const badminton = new GameType("Badminton", require("../updated_icons/icon_badminton.png"));
+const pingpong = new GameType("Ping Pong", require("../updated_icons/icon_pingpong.png"));
 
 const players = [
    new Player("Steve", ""),
@@ -81,12 +81,12 @@ export default class Index extends Component<null, IndexState> {
          new Game(basketball, DAY_OF_WEEK.MON, "7pm", "", players, chats[0]),
          new Game(volleyball, DAY_OF_WEEK.MON, "8pm", "", [players[0], players[1], players[3]], chats[1]),
          new Game(baseball, DAY_OF_WEEK.MON, "8pm", "", [players[4], players[5], players[6]], chats[2]),
-         new Game(soccer, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[3]),
-         new Game(basketball, DAY_OF_WEEK.WED, "2pm", "", [players[0], players[2], players[4], players[5]], chats[4]),
-         new Game(tennis, DAY_OF_WEEK.WED, "3pm", "", players, chats[1]),
-         new Game(shuttlecock, DAY_OF_WEEK.WED, "3pm", "", [players[0], players[2], players[4], players[5]], chats[2]),
-         new Game(pingpong, DAY_OF_WEEK.THUR, "5am", "", players, chats[3]),
-         new Game(football, DAY_OF_WEEK.SUN, "10am", "", [players[1], players[4], players[5]], chats[4]),
+         new Game(soccer, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[0]),
+         new Game(basketball, DAY_OF_WEEK.WED, "2pm", "", [players[0], players[2], players[4], players[5]], chats[1]),
+         new Game(tennis, DAY_OF_WEEK.WED, "3pm", "", players, chats[2]),
+         new Game(badminton, DAY_OF_WEEK.WED, "3pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
+         new Game(pingpong, DAY_OF_WEEK.THUR, "5am", "", players, chats[1]),
+         new Game(football, DAY_OF_WEEK.SUN, "10am", "", [players[1], players[4], players[5]], chats[2]),
          new Game(bowling, DAY_OF_WEEK.SUN, "6pm", "", players, chats[0]),
       ];
 

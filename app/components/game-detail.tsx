@@ -43,9 +43,8 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                   <Image style={styles.moreImg} source={require('../../images/menu.png')}/>
                </TouchableHighlight>
             </View>
-            <Text>Distance: {this.props.game.distance}</Text>
-            <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
-            <Text>Notes: {this.props.game.notes}</Text>
+            <Text style={styles.fontRoboto}>Distance: {this.props.game.distance}</Text>
+            <Text style={styles.fontRoboto}>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <View style={styles.chatContainer}>
             <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}
             />
@@ -72,7 +71,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#FFFFFF'
+      backgroundColor: '#EEEEEE'
    } as React.ViewStyle,
    rowWrapper: {
       flex: 1,
@@ -90,13 +89,13 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      backgroundColor: '#FFB600'
+      backgroundColor: '#4A93CF'
    } as React.ViewStyle,
    headerText: {
       flex: 1,
       flexDirection: 'row',
       textAlign: 'center',
-      fontSize: 22,
+      fontSize: 30,
       fontWeight: "bold"
    } as React.TextStyle,
    backBtn: {
@@ -115,7 +114,7 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-around',
-      backgroundColor: '#FFB600',
+      backgroundColor: '#4A93CF',
       alignItems: 'center'
     } as React.ViewStyle,
     textContainer: {
@@ -130,6 +129,9 @@ const styles = StyleSheet.create({
       color: '#ffffff',
       fontSize: 15
     } as React.TextStyle,
+    fontRoboto: {
+      fontFamily: 'Roboto-Black'
+    } as React.TextStyle,
     input: {
       width: 270,
       color: '#000000',
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
       paddingLeft: 10,
       paddingTop: 5,
       height: 32,
-      borderColor: '#6E5BAA',
+      borderColor: '#4A93CF',
       backgroundColor: '#FFFFFF',
       borderWidth: 1,
       borderRadius: 2,

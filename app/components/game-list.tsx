@@ -24,9 +24,25 @@ var styles = StyleSheet.create({
       backgroundColor: 'transparent',
     },
    title: {
-      marginTop: 15,
+      marginTop: 30,
       textAlign: 'center' as "auto" | "right" | "left" | "center"
    },
+   headerText: {
+     flex: 1,
+      textAlign: 'center',
+      fontSize: 30,
+      fontWeight: "bold"
+   } as React.TextStyle,
+   navContainer: {
+      height: 70,
+      paddingTop: 10,
+      paddingLeft: 20,
+      paddingRight: 15,
+      alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      backgroundColor: '#4A93CF'
+   } as React.ViewStyle,
    floatStyle: {
       flex: 1,
       flexDirection: 'row'
@@ -55,7 +71,9 @@ export default class GameList extends Component<GameListProps, GameListState> {
    render() {
       return (
          <View style={[styles.box]}>
-            <Text style={styles.title}>Game List</Text>
+            <View style={styles.navContainer}>
+               <Text style={styles.headerText}>Game List</Text>
+            </View>
             <ListView 
                dataSource={this.state.dataSource}
                renderRow={(rowData: Game) => 

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, ListView, AppRegistry } from 'react-native';
-import { Card, Button, RaisedButton } from 'react-native-material-design';
 
 import Game from '../models/game';
 
@@ -33,15 +32,7 @@ export default class GameList extends Component<GameListProps, GameListState> {
                dataSource={this.state.dataSource}
                renderRow={(rowData: Game) => 
                   <TouchableHighlight onPress={() => this.props.onSelect(rowData)}>
-                     <Card>
-                     <RaisedButton label="Default" />
-                     <Card.Body>
-                        <Text>{rowData.type}</Text>
-                     </Card.Body>
-                     <Card.Actions position="right">
-                        <Button value="BUTTON" />
-                     </Card.Actions>
-                     </Card>
+                     {rowData.type}
                   </TouchableHighlight>
                }
             />

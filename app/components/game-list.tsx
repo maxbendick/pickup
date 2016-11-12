@@ -6,7 +6,6 @@ import Game from '../models/game';
 import { APP_BAR_COLOR } from '../colors';
 
 import Swipeout from 'react-native-swipeout';
-// var Swipeout = require('react-native-swipeout')
 
 var styles = StyleSheet.create({
    row: {
@@ -84,7 +83,18 @@ var styles = StyleSheet.create({
       height: 35,
       marginLeft: 5,
       alignItems: 'center'
-   } as React.ImageStyle
+   } as React.ImageStyle,
+   input: {
+      flex: 1,
+      flexDirection: 'column',
+      color: '#000000',
+      paddingRight: 10,
+      paddingLeft: 10,
+      paddingTop: 5,
+      height: 48,
+      backgroundColor: '#FAFAFA',
+      alignSelf: 'center',
+    } as React.TextStyle,
 });
 
 export class GameListProps {
@@ -110,17 +120,17 @@ export default class GameList extends Component<GameListProps, GameListState> {
       const weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
       let swipeBtns = [
          {
-            text: '+',
+            text: 'Join',
             backgroundColor: '#8BBF50',
             onPress: () => { console.log("pressed swipe btn") }
          },
          {
-            text: '...',
+            text: 'More',
             backgroundColor: '#617E8A',
             onPress: () => { console.log("pressed swipe btn") }
          },
          {
-            text: 'Delete',
+            text: 'Dismiss',
             backgroundColor: '#F05A36',
             onPress: () => { console.log("pressed swipe btn") }
          }

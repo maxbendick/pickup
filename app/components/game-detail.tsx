@@ -39,6 +39,9 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                   <Text style={styles.backBtn}>&lt;</Text>
                </TouchableHighlight>
                <Text style={styles.headerText}>{this.props.game.type.type} Game</Text>
+               <TouchableHighlight>
+                  <Image style={styles.moreImg} source={require('../../images/menu.png')}/>
+               </TouchableHighlight>
             </View>
             <Text>Distance: {this.props.game.distance}</Text>
             <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
@@ -96,13 +99,12 @@ const styles = StyleSheet.create({
       fontSize: 22,
       fontWeight: "bold"
    } as React.TextStyle,
-   welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10
-   } as React.TextStyle,
    backBtn: {
       fontSize: 30
+   } as React.TextStyle,
+   moreImg: {
+      width: 30,
+      height: 30
    } as React.TextStyle,
    chatContainer: {
       flex: 11,

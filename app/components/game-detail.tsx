@@ -3,6 +3,8 @@ import { Component } from 'react';
 import { StyleSheet, Image, Text, TextInput, View, ListView, TouchableHighlight } from 'react-native';
 import Game from "../models/game";
 import Chat from "../models/chat";
+import Message from '../models/message';
+import MessageComponent from './message-component';
 
 export class GameDetailProps {
    public game: Game;
@@ -19,9 +21,9 @@ export default class GameDetail extends Component<GameDetailProps, State> {
    constructor(GameDetailProps) {
       super(GameDetailProps);
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-      var msgs = [];
+      var msgs: Array<Message> = [];
       for (var i = 0; i < this.props.chat.messages.length; i++) {
-         msgs[i] = this.props.chat.messages[i].content;
+         msgs[i] = this.props.chat.messages[i];
       }
       this.state = {
          dataSource: ds.cloneWithRows(msgs),
@@ -41,7 +43,7 @@ export default class GameDetail extends Component<GameDetailProps, State> {
             <Text>Distance: {this.props.game.distance}</Text>
             <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <Text>Notes: {this.props.game.notes}</Text>
-            <ListView dataSource={this.state.dataSource} renderRow={(content) => <Text>{content}</Text>}
+            <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}
             />
             <View style={styles.inputContainer}>
                <View style={styles.textContainer}>

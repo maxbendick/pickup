@@ -4,6 +4,7 @@ import { StyleSheet, Image, Text, TextInput, View, ListView, TouchableHighlight 
 import Game from "../models/game";
 import Chat from "../models/chat";
 import Message from '../models/message';
+import Player from '../models/player';
 import MessageComponent from './message-component';
 import { APP_BAR_COLOR } from '../colors';
 
@@ -31,6 +32,16 @@ export default class GameDetail extends Component<GameDetailProps, State> {
       };
    }
 
+   _onBack = () => {
+     var door = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+     var messages = this.props.chat.messages;
+     messages.push(new Message(new Player("Me",""),"Hi!!"));
+     this.setState ({
+       dataSource: door.cloneWithRows(messages)
+     });
+  }
+     
+
    render() {
       var messageLen = this.props.chat.messages.length;
       return (
@@ -47,13 +58,13 @@ export default class GameDetail extends Component<GameDetailProps, State> {
             <Text>Distance: {this.props.game.distance}</Text>
             <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <View style={styles.chatContainer}>
-            <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}
+              <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}
             />
             </View>
             <View style={styles.inputContainer}>
                <View style={styles.textContainer}>
                   <TextInput
-                  style={styles.input}
+                    style={styles.input} onSubmitEditing={this._onBack}
                   />
                </View>
                <View style={styles.sendContainer}>

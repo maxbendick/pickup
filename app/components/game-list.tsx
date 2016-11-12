@@ -29,8 +29,8 @@ var styles = StyleSheet.create({
       textAlign: 'center' as "auto" | "right" | "left" | "center"
    },
    headerText: {
-      width: 255,
-      height: 55,
+      width: 120,
+      height: 30,
       //flex: 1, 
       justifyContent: 'center',
       alignItems: 'center',
@@ -40,7 +40,7 @@ var styles = StyleSheet.create({
    } as React.TextStyle,
    navContainer: {
       height: 70,
-      paddingTop: 10,
+      paddingTop: 20,
       paddingLeft: 20,
       paddingRight: 15,
       alignItems: 'center',
@@ -97,7 +97,7 @@ export default class GameList extends Component<GameListProps, GameListState> {
       return (
          <View style={[styles.box]}>
             <View style={styles.navContainer}>
-               <Image source={require('../../images/goodGame_logo.png')} style={styles.headerText}/>
+               <Image source={require('../../images/goodGame_Newlogo.png')} style={styles.headerText}/>
             </View>
             <ListView style={{margin: 2}}
                dataSource={this.state.dataSource}

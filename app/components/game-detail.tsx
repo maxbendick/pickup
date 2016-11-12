@@ -43,8 +43,8 @@ export default class GameDetail extends Component<GameDetailProps, State> {
                   <Image style={styles.moreImg} source={require('../../images/menu.png')}/>
                </TouchableHighlight>
             </View>
-            <Text style={styles.fontRoboto}>Distance: {this.props.game.distance}</Text>
-            <Text style={styles.fontRoboto}>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
+            <Text>Distance: {this.props.game.distance}</Text>
+            <Text>Time: {this.weekday[this.props.game.day]} at {this.props.game.hour}</Text>
             <View style={styles.chatContainer}>
             <ListView dataSource={this.state.dataSource} renderRow={(message) => <MessageComponent message={message} />}
             />
@@ -128,9 +128,6 @@ const styles = StyleSheet.create({
     sendLabel: {
       color: '#ffffff',
       fontSize: 15
-    } as React.TextStyle,
-    fontRoboto: {
-      fontFamily: 'Roboto-Black'
     } as React.TextStyle,
     input: {
       width: 270,

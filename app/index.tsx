@@ -49,7 +49,18 @@ const chats = [
       new Message(players[1], "Yeah, let's do it!"),
       new Message(players[2], "Loser buys the iced tea!"),
       new Message(players[1], "You're on, Allison")
-   ])
+   ]),
+   new Chat([
+      new Message(players[2], "Anyone want to play at Dexter's?"),
+      new Message(players[3], "Yeah, let's do it!"),
+      new Message(players[4], "Can anyone pick me up from PCV right before?"),
+      new Message(players[2], "I gotchu")
+   ]),
+   new Chat([
+      new Message(players[5], "Can't make it after all today"),
+      new Message(players[5], "But I'll free next week!"),
+      new Message(players[3], "No worries"),
+   ]),
 ];
 
 export default class Index extends Component<null, IndexState> {
@@ -58,15 +69,15 @@ export default class Index extends Component<null, IndexState> {
 
       let games = [
          new Game(basketball, DAY_OF_WEEK.MON, "7pm", "", players, chats[0]),
-         new Game(volleyball, DAY_OF_WEEK.MON, "8pm", "", [players[0], players[1], players[3]], chats[0]),
-         new Game(baseball, DAY_OF_WEEK.MON, "7pm", "", [players[4], players[5], players[6]], chats[0]),
+         new Game(volleyball, DAY_OF_WEEK.MON, "8pm", "", [players[0], players[1], players[3]], chats[1]),
+         new Game(baseball, DAY_OF_WEEK.MON, "8pm", "", [players[4], players[5], players[6]], chats[2]),
          new Game(soccer, DAY_OF_WEEK.TUES, "11am", "", [players[1], players[4], players[5]], chats[0]),
-         new Game(basketball, DAY_OF_WEEK.WED, "2pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
-         new Game(tennis, DAY_OF_WEEK.THUR, "3pm", "", players, chats[0]),
-         new Game(shuttlecock, DAY_OF_WEEK.WED, "1pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
-         new Game(pingpong, DAY_OF_WEEK.SUN, "5pm", "", players, chats[0]),
-         new Game(football, DAY_OF_WEEK.TUES, "10am", "", [players[1], players[4], players[5]], chats[0]),
-         new Game(bowling, DAY_OF_WEEK.THUR, "6pm", "", players, chats[0]),
+         new Game(basketball, DAY_OF_WEEK.WED, "2pm", "", [players[0], players[2], players[4], players[5]], chats[1]),
+         new Game(tennis, DAY_OF_WEEK.WED, "3pm", "", players, chats[2]),
+         new Game(shuttlecock, DAY_OF_WEEK.WED, "3pm", "", [players[0], players[2], players[4], players[5]], chats[0]),
+         new Game(pingpong, DAY_OF_WEEK.THUR, "5am", "", players, chats[1]),
+         new Game(football, DAY_OF_WEEK.SUN, "10am", "", [players[1], players[4], players[5]], chats[2]),
+         new Game(bowling, DAY_OF_WEEK.SUN, "6pm", "", players, chats[0]),
       ];
 
       this.state = {

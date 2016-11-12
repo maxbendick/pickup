@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, ListView, TouchableHighlight } from 'react-native';
 import Game from "../models/game";
 
 export class GameDetailProps {
@@ -10,7 +10,6 @@ export class GameDetailProps {
 
 export default class GameDetail extends Component<GameDetailProps, null> {
    render() {
-      let date = new Date(this.props.game.time).toUTCString();
       return (
          <View style={styles.container}>
             <View style={styles.navContainer}>
@@ -20,7 +19,7 @@ export default class GameDetail extends Component<GameDetailProps, null> {
                <Text style={styles.headerText}>{this.props.game.type} Game</Text>
             </View>
             <Text>Distance: {this.props.game.distance}</Text>
-            <Text>Game Starts At: {date}</Text>
+            <Text>Time: {this.props.game.day} at {this.props.game.hour}</Text>
             <Text>Notes: {this.props.game.notes}</Text>
          </View>
       );
